@@ -389,8 +389,8 @@ if (!['owner-unbanchat.js'].includes(name) && chat && chat.isBanned && !isROwner
 if (name != 'owner-unbanchat.js' && name != 'owner-exec.js' && name != 'owner-exec2.js' && name != 'tool-delete.js' && chat?.isBanned && !isROwner) return 
 if (m.text && user.banned && !isROwner) {
 if (user.antispam > 2) return
-m.reply(`🚫 Está baneado(a), no puede usar los comandos de este bot!\n\n${user.bannedReason ? `\n💌 *Motivo:* 
-${user.bannedReason}` : '💌 *Motivo:* Sin Especificar'}\n\n⚠️ *Si este bot es cuenta oficial y tiene evidencia que respalde que este mensaje es un error, puede exponer su caso en:*\n\n🤍 ${asistencia}`)
+m.reply(`🚫 Vous êtes banni, vous ne pouvez pas utiliser les commandes de ce bot !\n\n${user.bannedReason ? `\n💌 *Raison :* 
+${user.bannedReason}` : '💌 *Raison :* Non spécifié'}\n\n⚠️ *Si ce bot est un compte officiel et que vous avez des preuves démontrant que ce message est une erreur, vous pouvez présenter votre cas à :*\n\n🤍 ${assistance}`)
 user.antispam++        
 return
 }
@@ -406,7 +406,7 @@ let hl = _prefix
 let adminMode = global.db.data.chats[m.chat].modoadmin
 let luffy = `${plugins.botAdmin || plugins.admin || plugins.group || plugins || noPrefix || hl ||  m.text.slice(0, 1) == hl || plugins.command}`
 if (adminMode && !isOwner && !isROwner && m.isGroup && !isAdmin && luffy) return   
-if (plugin.rowner && plugin.owner && !(isROwner || isOwner)) { //número bot owner
+if (plugin.rowner && plugin.owner && !(isROwner || isOwner)) { //numero bot owner
 fail('owner', m, this)
 continue
 }
@@ -451,19 +451,19 @@ if (xp > 2000)
 m.reply('Exp limit') 
 else               
 if (!isPrems && plugin.money && global.db.data.users[m.sender].money < plugin.money * 1) {
-conn.reply(m.chat, `❮💰❯ 𝗡𝗼 𝘁𝗶𝗲𝗻𝗲𝘀 𝘀𝘂𝗳𝗶𝗰𝗶𝗲𝗻𝘁𝗲𝘀 𝗚𝗼𝗸𝘂𝗰𝗼𝗶𝗻𝘀 𝗽𝗮𝗿𝗮 𝘂𝘀𝗮𝗿 𝗲𝘀𝘁𝗲 𝗰𝗼𝗺𝗮𝗻𝗱𝗼.`, m, rcanal)       
+conn.reply(m.chat, `❮💰❯ vous n'avez pas assez de pièces Goku pour utiliser cette commande.`, m, rcanal)       
 continue     
 }
 
 m.exp += xp
 if (!isPrems && plugin.estrellas && global.db.data.users[m.sender].estrellas < plugin.estrellas * 1) {
-conn.reply(m.chat, `❮🌟❯ 𝗡𝗼 𝘁𝗶𝗲𝗻𝗲𝘀 𝘀𝘂𝗳𝗶𝗰𝗶𝗲𝗻𝘁𝗲𝘀 𝗘𝘀𝘁𝗿𝗲𝗹𝗹𝗮𝘀 𝗽𝗮𝗿𝗮 𝘂𝘀𝗮𝗿 𝗲𝘀𝘁𝗲 𝗰𝗼𝗺𝗮𝗻𝗱𝗼. 𝗣𝗮𝗿𝗮 𝗰𝗼𝗺𝗽𝗿𝗮𝗿 𝗺𝗮𝘀 𝗘𝘀𝘁𝗿𝗲𝗹𝗹𝗮𝘀, 𝘂𝘀𝗲 𝗲𝘀𝘁𝗲 𝗰𝗼𝗺𝗮𝗻𝗱𝗼.\n\n• 𝗣𝗼𝗿 𝗘𝗷𝗲𝗺𝗽𝗹𝗼:\n\n*${usedPrefix}buyall*\n*${usedPrefix}buy*`, m, rcanal) 
+conn.reply(m.chat, `❮🌟❯ vous n'avez pas assez d'étoiles pour utiliser cette commande. pour acheter plus d'étoiles, utilise cette commande.\n\n• par exemple:\n\n*${usedPrefix}buyall*\n*${usedPrefix}buy*`, m, rcanal) 
 continue
 }
 
 
 if (plugin.level > _user.level) {
-conn.reply(m.chat, `❮📣❯ 𝗥𝗲𝗾𝘂𝗶𝗲𝗿𝗲 𝗲𝗹 𝗻𝗶𝘃𝗲𝗹: *${plugin.level}*\n\n• 𝗧𝘂 𝗻𝗶𝘃𝗲𝗹 𝗮𝗰𝘁𝘂𝗮𝗹 𝗲𝘀: *${_user.level}*\n\n• 𝗨𝘀𝗮 𝗲𝘀𝘁𝗲 𝗰𝗼𝗺𝗮𝗻𝗱𝗼 𝗽𝗮𝗿𝗮 𝘀𝘂𝗯𝗶𝗿 𝗱𝗲 𝗻𝗶𝘃𝗲𝗹:\n*${usedPrefix}levelup*`, m, rcanal)       
+conn.reply(m.chat, `❮📣❯ Niveau requis: *${plugin.level}*\n\n• Ton niveau actuel est: *${_user.level}*\n\n• utilise cette commande pour augmenter de niveau:\n*${usedPrefix}levelup*`, m, rcanal)       
 continue
 }
 let extra = {
@@ -506,7 +506,7 @@ if (e.name)
 for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
 let data = (await conn.onWhatsApp(jid))[0] || {}
 if (data.exists)
-m.reply(`⧋〘📕 𝗘𝗥𝗥𝗢𝗥 │ 𝗙𝗔𝗟𝗟𝗢 📕〙⧋\n\n❒ 𝗘𝗥𝗥𝗢𝗥:\n\`\`\`${format(e)}\`\`\`\n`.trim(), data.jid)
+m.reply(`⧋〘📕 𝗘𝗥𝗥𝗢𝗥 │ ECHOUE 📕〙⧋\n\n❒ 𝗘𝗥𝗥𝗢𝗥:\n\`\`\`${format(e)}\`\`\`\n`.trim(), data.jid)
 }
 m.reply(text)
 }} finally {
@@ -717,11 +717,11 @@ if (!chat?.delete) return
 if (!msg) return 
 if (!msg?.isGroup) return 
 const antideleteMessage = `╭•┈•〘❌ 𝗔𝗡𝗧𝗜 𝗗𝗘𝗟𝗘𝗧𝗘 ❌〙•┈• ◊
-│❒ 𝗨𝗦𝗨𝗔𝗥𝗜𝗢:
+│❒ UTILISATEUR:
 │• @${participant.split`@`[0]}
 │
-│❒ 𝗔𝗰𝗮𝗯𝗮 𝗱𝗲 𝗲𝗹𝗶𝗺𝗶𝗻𝗮𝗿 𝘂𝗻 𝗺𝗲𝗻𝘀𝗮𝗷𝗲
-│𝗿𝗲𝗲𝗻𝘃𝗶𝗮𝗻𝗱𝗼... ⏱️
+│❒ vous venez de supprimer un message
+│expéditeur... ⏱️
 ╰•┈•〘❌ 𝗔𝗡𝗧𝗜 𝗗𝗘𝗟𝗘𝗧𝗘 ❌〙•┈• ◊`.trim();
 await this.sendMessage(msg.chat, {text: antideleteMessage, mentions: [participant]}, {quoted: msg})
 this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
@@ -731,15 +731,15 @@ console.error(e)
 
 global.dfail = (type, m, conn) => {
 const msg = {
-rowner: '「👑」 *Esta función solo puede ser usada por mi creador*\n\n> Jostin207.', 
-owner: '「👑」 *Esta función solo puede ser usada por mi desarrollador.*', 
-mods: '「🤴🏻」 *Esta función solo puede ser usada por mis desarrolladores.*', 
-premium: '「🍧」 *Esta función solo es para usuarios Premium.*', 
+rowner: '「👑」 *Cette fonction ne peut être utilisée que par mon créateur*\n\n> Belmont.*',
+owner: '「👑」 *Cette fonction ne peut être utilisée que par mon développeur.*', 
+mods: '「🤴🏻」 *Cette fonction ne peut être utilisée que par mes développeurs.*', 
+premium: '「🍧」 *Cette fonctionnalité est réservée aux utilisateurs Premium.*', 
 group: '「🐢」 *Esta funcion solo puede ser ejecutada en grupos.*', 
-private: '「🍭」 *Esta función solo puede ser usada en chat privado.*', 
-admin: '「👑」 *Este comando solo puede ser usado por admins.*', 
-botAdmin: '「🚩」 *Para usar esta función debo ser admin.*', 
-unreg: '「🍟」 *¡Hey! no estas registrado, registrese para usar esta función*\n\n*/reg nombre.edad*\n\n*_❕ Ejemplo_* : */reg Goku.777*',
+private: '「🍭」 *Cett fonction ne peut etre utilisee que en char privee.*', 
+admin: '「👑」 *Cette commande ne peut etre utilisee que par les admins.*', 
+botAdmin: '「🚩」 *Pour utiliser cette fonction, je dois etre administrateur.*', 
+unreg: '「🍟」 *He! vous netes pas inscrit, inscrivez-vous pour utiliser cette fonction*\n\n*/reg nombre.edad*\n\n*_❕ Exemple_* : */reg Issei.13*',
 restrict: '「💫」 *Esta característica esta desactivada.*'
 }[type];
 if (msg) return conn.reply(m.chat, msg, m, rcanal).then(_ => m.react('✖️'))}
@@ -748,7 +748,7 @@ const file = global.__filename(import.meta.url, true);
 // NO TOCAR
 watchFile(file, async () => {
 unwatchFile(file);
-console.log(chalk.green('Actualizando "handler.js"'));
+console.log(chalk.green('Actualisation "handler.js"'));
 if (global.reloadHandler) console.log(await global.reloadHandler());
 
 if (global.conns && global.conns.length > 0 ) {
