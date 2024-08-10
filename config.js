@@ -155,7 +155,7 @@ global.rpg = {
  diamant : '💎 Diamant',
  santé : '❤️San',
  Kyubi : '🌀Magie',
- rejoindre le compte : '💰 Token',
+ compte : '💰 Token',
  émeraude : '💚 Émeraude',
  résistance : '✨Énergie',
  rôle : '💪Classement',
